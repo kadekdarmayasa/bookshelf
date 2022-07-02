@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookShelf</title>
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Book<span>Shelf<span></h1>
+      <p>
+        Bookshelf adalah salah satu platform yang dapat anda gunakan dalam mengelola daftar buku yang sudah atau sedang
+        anda baca. Tentunya dengan fitur yang modern dan canggih.
+      </p>
+      <a href="#manage-books">Kelola Buku</a>
+    </div>
+  </header>
+
+  <main id="manage-books">
+    <div class="container">
+      <section class="add-book">
+        <div class="add-book-description">
+          <h2>Tambah Buku</h2>
+          <p>
+            Silahkan tambahkan data buku yang akurat dan sesuai dengan kondisi asli dari buku tersebut.
+          </p>
+        </div>
+        <div class="add-book-content">
+          <form action="" method="post" id="submitForm">
+            <div class="form-element">
+              <label for="judul-buku">Judul Buku</label>
+              <input type="text" id="judul-buku" name="judul-buku"
+                placeholder="ex: Harry Potter and the Philosopher's Stone" required>
+            </div>
+            <div class="form-element">
+              <label for="penulis">Penulis</label>
+              <input type="text" id="penulis" name="penulis" placeholder="ex: J.K Rowling" required>
+            </div>
+            <div class="form-element">
+              <label for="tahun-terbit">Tahun Terbit</label>
+              <input type="number" id="tahun-terbit" name="tahun-terbit" placeholder="ex: 2022" required>
+            </div>
+            <div class="form-element">
+              <input type="checkbox" id="isRead" name="isRead">
+              <label for="isRead">Telah selesai dibaca</label>
+            </div>
+            <div class="form-element">
+              <button type="submit" id="add-to-shelf">Tambahkan buku ke dalam rak</button>
+            </div>
+          </form>
+          <div class="img-section">
+            <img src="./src/img/add-book-ilustration.svg" alt="add-books">
+          </div>
+        </div>
+      </section>
+      <section class="search-books"></section>
+      <section class="unread-books"></section>
+      <section class="read-books"></section>
+    </div>
+  </main>
+  <script src="./src/js/script.js"></script>
+</body>
+
+</html>

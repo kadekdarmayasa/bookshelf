@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	max-width: 1600px;
+	margin: auto;
+	height: 9999px;
+}
+
+.container {
+	width: 90%;
+	height: 100%;
+	margin: auto;
+}
+
+header {
+	background-image: url('../img/hero-image.webp');
+	height: 100vh;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+header::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+header * {
+	z-index: 2;
+}
+
+header .container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+header h1 {
+	color: #effffd;
+	font-weight: 700;
+	font-size: 2.8rem;
+	text-shadow: -2px 5px 10px rgba(66, 194, 255, 0.5);
+}
+
+header h1 span {
+	color: #42c2ff;
+	text-shadow: 2px 5px 10px rgba(255, 255, 255, 0.5);
+}
+
+header p {
+	color: #effffd;
+	font-size: 1.2rem;
+	margin: 0.8em auto 4em;
+	width: 70%;
+	line-height: 2;
+	text-shadow: -2px 5px 10px rgba(66, 194, 255, 0.5);
+}
+
+header a {
+	color: #85f4ff;
+	font-size: 1.2rem;
+	font-weight: 600;
+	padding: 1em 3em;
+	border: 3px solid #85f4ff;
+	border-radius: 10px;
+	text-decoration: none;
+	transition: all 0.2s linear;
+}
+
+header a:hover {
+	color: #2c2c2d;
+	background-color: #85f4ff;
+	filter: drop-shadow(0 5px 10px rgba(255, 255, 255, 0.5));
+	-webkit-filter: drop-shadow(0 5px 10px rgba(255, 255, 255, 0.5));
+}
+
+.add-book {
+	margin-top: 6em;
+}
+
+.add-book-description {
+	width: 70%;
+	margin: auto;
+	text-align: center;
+}
+
+.add-book-description h2 {
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #42c2ff;
+}
+
+.add-book-description p {
+	font-size: 1.02rem;
+	font-weight: 500;
+	margin: 1.5em auto 5em;
+	color: #2c2c2d;
+	line-height: 1.8;
+}
+
+.add-book-content {
+	display: flex;
+	align-items: center;
+}
+
+.add-book-content > #submitForm {
+	flex: 1;
+}
+
+.add-book-content > .img-section {
+	flex: 1;
+	margin-left: 30px;
+}
+
+.add-book-content img {
+	width: 100%;
+}
+
+.form-element {
+	margin: 1.5em auto;
+	color: #2c2c2d;
+}
+
+.form-element:nth-child(1),
+.form-element:nth-child(2),
+.form-element:nth-child(3) {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-element:not(:nth-child(4)) label {
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 0.8em;
+}
+
+.form-element #judul-buku,
+.form-element #penulis,
+.form-element #tahun-terbit {
+	background-color: #effffd;
+	font-size: 1rem;
+	height: 50px;
+	border-radius: 10px;
+	border: 0;
+	outline: 0;
+	padding: 1em;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.form-element #isRead {
+	width: 25px;
+	cursor: pointer;
+}
+.form-element #isRead ~ label {
+	font-weight: 500;
+}
+
+.form-element button {
+	background-color: #b8fff9;
+	border: 0;
+	outline: 0;
+	width: 100%;
+	padding: 1.2em;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+@media screen and (max-width: 851px) {
+	.add-book-description {
+		width: 100%;
+	}
+
+	.add-book-description p {
+		margin-bottom: 3em;
+	}
+
+	.add-book-content {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.add-book-content > #submitForm {
+		order: 2;
+	}
+
+	.add-book-content > #submitForm {
+		width: 100%;
+	}
+
+	.add-book-content > .img-section {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		width: 90%;
+	}
+
+	header h1 {
+		font-size: 2rem;
+	}
+
+	header p {
+		width: 100%;
+		font-size: 1rem;
+	}
+
+	header a {
+		font-size: 1rem;
+	}
+}
