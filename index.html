@@ -23,7 +23,7 @@
 
   <main id="manage-books">
     <section class="add-book">
-      <div class="add-book-description">
+      <div class="add-book-header">
         <h2>Tambah Buku</h2>
         <p>
           Silahkan tambahkan data buku yang akurat dan sesuai dengan kondisi asli dari buku tersebut.
@@ -34,15 +34,17 @@
           <div class="form-element">
             <label for="judul-buku">Judul Buku</label>
             <input type="text" id="judul-buku" name="judul-buku"
-              placeholder="ex: Harry Potter and the Philosopher's Stone" required>
+              placeholder="ex: Harry Potter and the Philosopher's Stone" autocomplete="off" maxlength="50" required>
           </div>
           <div class="form-element">
             <label for="penulis">Penulis</label>
-            <input type="text" id="penulis" name="penulis" placeholder="ex: J.K Rowling" required>
+            <input type="text" id="penulis" name="penulis" placeholder="ex: J.K Rowling" autocomplete="off"
+              maxlength="20" required>
           </div>
           <div class="form-element">
             <label for="tahun-terbit">Tahun Terbit</label>
-            <input type="number" id="tahun-terbit" name="tahun-terbit" placeholder="ex: 2022" required>
+            <input type="number" id="tahun-terbit" name="tahun-terbit" placeholder="ex: 2022" autocomplete="off"
+              required>
           </div>
           <div class="form-element">
             <input type="checkbox" id="isRead" name="isRead">
@@ -57,6 +59,7 @@
         </div>
       </div>
     </section>
+
     <section class="search-books">
       <div class="search-container">
         <input type="text" id="search-keyword" placeholder="Cari buku">
@@ -65,9 +68,136 @@
         </button>
       </div>
     </section>
-    <section class="uncompleted-books"></section>
-    <section class="completed-books"></section>
+
+    <section class="uncompleted-books">
+      <div class="uncompleted-books-header">
+        <h2>Daftar Buku <br> Belum Selesai Dibaca</h2>
+      </div>
+      <div class="uncompleted-books-content">
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="completed-read"><span>Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="completed-read"><span>Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="completed-read"><span>Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="completed-read"><span>Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="completed-read"><span>Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="completed-read"><span>Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="completed-books">
+      <div class="completed-books-header">
+        <h2>Daftar Buku <br> Telah Selesai Dibaca</h2>
+      </div>
+      <div class="completed-books-content">
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="uncompleted-read"><span>Belum Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="uncompleted-read"><span>Belum Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="uncompleted-read"><span>Belum Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="uncompleted-read"><span>Belum Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="uncompleted-read"><span>Belum Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+        <div class="book">
+          <h3 id="title">Harry Potter</h3>
+          <p id="author">Toni Raharjo</p>
+          <p id="year">2015</p>
+          <div class="action-buttons">
+            <button id="uncompleted-read"><span>Belum Selesai Dibaca</span></button>
+            <button id="delete-book"><span>Hapus Buku</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <p>Build With ❤️ by <a href="https://github.com/kadekdarmayasa">Kadek Darmayasa</a></p>
+    <p>DICODING SUMBISSION</p>
+  </footer>
   <script src="src/js/script.js"></script>
 </body>
 
