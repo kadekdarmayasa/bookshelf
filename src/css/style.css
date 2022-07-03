@@ -89,6 +89,14 @@ header a:hover {
 	-webkit-filter: drop-shadow(0 5px 10px rgba(255, 255, 255, 0.5));
 }
 
+.add-book,
+.uncompleted-books,
+.completed-books {
+	width: 90%;
+	height: 100%;
+	margin: auto;
+}
+
 .add-book {
 	margin-top: 6em;
 }
@@ -181,6 +189,70 @@ header a:hover {
 	font-weight: 500;
 }
 
+.search-books {
+	background-image: url('../img/hero-image.webp');
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin-top: 10em;
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.search-books::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+
+.search-container {
+	width: 60%;
+	height: 60px;
+	border-radius: 10px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 1em;
+	background-color: rgba(255, 255, 244, 0.6);
+	backdrop-filter: blur(8px);
+	z-index: 2;
+}
+
+.search-container input,
+.search-container button {
+	color: #2c2c2d;
+	font-size: 1em;
+	font-weight: 600;
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	font-family: 'Plus Jakarta Sans';
+}
+
+.search-container input {
+	width: 94%;
+}
+
+.search-container input::placeholder {
+	color: #575757;
+}
+
+.search-container button {
+	cursor: pointer;
+}
+
+.search-container button > img {
+	width: 20px;
+	height: 100%;
+}
+
 @media screen and (max-width: 851px) {
 	.add-book-description {
 		width: 100%;
@@ -206,6 +278,10 @@ header a:hover {
 	.add-book-content > .img-section {
 		display: none;
 	}
+
+	.search-container {
+		width: 80%;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -224,5 +300,11 @@ header a:hover {
 
 	header a {
 		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.search-container {
+		width: 90%;
 	}
 }

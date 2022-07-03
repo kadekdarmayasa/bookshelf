@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookShelf</title>
-  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
@@ -22,48 +22,53 @@
   </header>
 
   <main id="manage-books">
-    <div class="container">
-      <section class="add-book">
-        <div class="add-book-description">
-          <h2>Tambah Buku</h2>
-          <p>
-            Silahkan tambahkan data buku yang akurat dan sesuai dengan kondisi asli dari buku tersebut.
-          </p>
-        </div>
-        <div class="add-book-content">
-          <form action="" method="post" id="submitForm">
-            <div class="form-element">
-              <label for="judul-buku">Judul Buku</label>
-              <input type="text" id="judul-buku" name="judul-buku"
-                placeholder="ex: Harry Potter and the Philosopher's Stone" required>
-            </div>
-            <div class="form-element">
-              <label for="penulis">Penulis</label>
-              <input type="text" id="penulis" name="penulis" placeholder="ex: J.K Rowling" required>
-            </div>
-            <div class="form-element">
-              <label for="tahun-terbit">Tahun Terbit</label>
-              <input type="number" id="tahun-terbit" name="tahun-terbit" placeholder="ex: 2022" required>
-            </div>
-            <div class="form-element">
-              <input type="checkbox" id="isRead" name="isRead">
-              <label for="isRead">Telah selesai dibaca</label>
-            </div>
-            <div class="form-element">
-              <button type="submit" id="add-to-shelf">Tambahkan buku ke dalam rak</button>
-            </div>
-          </form>
-          <div class="img-section">
-            <img src="./src/img/add-book-ilustration.svg" alt="add-books">
+    <section class="add-book">
+      <div class="add-book-description">
+        <h2>Tambah Buku</h2>
+        <p>
+          Silahkan tambahkan data buku yang akurat dan sesuai dengan kondisi asli dari buku tersebut.
+        </p>
+      </div>
+      <div class="add-book-content">
+        <form action="" method="post" id="submitForm">
+          <div class="form-element">
+            <label for="judul-buku">Judul Buku</label>
+            <input type="text" id="judul-buku" name="judul-buku"
+              placeholder="ex: Harry Potter and the Philosopher's Stone" required>
           </div>
+          <div class="form-element">
+            <label for="penulis">Penulis</label>
+            <input type="text" id="penulis" name="penulis" placeholder="ex: J.K Rowling" required>
+          </div>
+          <div class="form-element">
+            <label for="tahun-terbit">Tahun Terbit</label>
+            <input type="number" id="tahun-terbit" name="tahun-terbit" placeholder="ex: 2022" required>
+          </div>
+          <div class="form-element">
+            <input type="checkbox" id="isRead" name="isRead">
+            <label for="isRead">Telah selesai dibaca</label>
+          </div>
+          <div class="form-element">
+            <button type="submit" id="add-to-shelf">Tambahkan buku ke dalam rak</button>
+          </div>
+        </form>
+        <div class="img-section">
+          <img src="./src/img/add-book-ilustration.svg" alt="add-books">
         </div>
-      </section>
-      <section class="search-books"></section>
-      <section class="unread-books"></section>
-      <section class="read-books"></section>
-    </div>
+      </div>
+    </section>
+    <section class="search-books">
+      <div class="search-container">
+        <input type="text" id="search-keyword" placeholder="Cari buku">
+        <button type="submit" id="search-keyword-button">
+          <img src="src/img/search.svg" alt="Search">
+        </button>
+      </div>
+    </section>
+    <section class="uncompleted-books"></section>
+    <section class="completed-books"></section>
   </main>
-  <script src="./src/js/script.js"></script>
+  <script src="src/js/script.js"></script>
 </body>
 
 </html>
