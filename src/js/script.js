@@ -21,8 +21,8 @@ const app = () => {
 		if (checkForStorage()) {
 			if (books.length === 0 && localStorage.getItem(storageKey) !== null) {
 				books = JSON.parse(localStorage.getItem(storageKey));
-				document.body.dispatchEvent(UPDATE_UI);
 			}
+			updateUI();
 		}
 	};
 
