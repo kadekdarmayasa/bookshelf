@@ -152,27 +152,27 @@ header a:hover {
 	width: 100%;
 }
 
-.form-element {
+.add-book-content .form-element {
 	margin: 1.5em auto;
 	color: #2c2c2d;
 }
 
-.form-element:nth-child(1),
-.form-element:nth-child(2),
-.form-element:nth-child(3) {
+.add-book-content .form-element:nth-child(1),
+.add-book-content .form-element:nth-child(2),
+.add-book-content .form-element:nth-child(3) {
 	display: flex;
 	flex-direction: column;
 }
 
-.form-element:not(:nth-child(4)) label {
+.add-book-content .form-element:not(:nth-child(4)) label {
 	font-size: 1.1rem;
 	font-weight: 600;
 	margin-bottom: 0.8em;
 }
 
-.form-element #judul-buku,
-.form-element #penulis,
-.form-element #tahun-terbit {
+.add-book-content .form-element #judul-buku,
+.add-book-content .form-element #penulis,
+.add-book-content .form-element #tahun-terbit {
 	background-color: #effffd;
 	font-size: 1rem;
 	height: 50px;
@@ -183,15 +183,16 @@ header a:hover {
 	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.form-element #isComplete {
+.add-book-content .form-element #isComplete {
 	width: 25px;
 	cursor: pointer;
 }
-.form-element #isComplete ~ label {
+.add-book-content .form-element #isComplete ~ label {
 	font-weight: 500;
 }
 
-.form-element button {
+.add-book-content .form-element button,
+.update-books .form-element button {
 	background-color: #b8fff9;
 	border: 0;
 	outline: 0;
@@ -206,7 +207,8 @@ header a:hover {
 	font-weight: 600;
 }
 
-.form-element button:hover {
+.add-book-content .form-element button:hover,
+.update-books .form-element button:hover {
 	background-color: #a5fff9;
 }
 
@@ -336,75 +338,90 @@ header a:hover {
 	margin-top: 0.3rem;
 }
 
+.action-buttons {
+	display: flex;
+	align-items: center;
+	margin-top: 1.4em;
+}
+
 .action-buttons > * {
 	font-family: 'Plus Jakarta Sans', sans-serif;
 	border: 0;
 	outline: 0;
-	width: 100%;
 	padding: 1em;
 	font-weight: 600;
 	font-size: 1rem;
 	border-radius: 10px;
 	cursor: pointer;
 	position: relative;
-}
-
-.action-buttons > *::after {
-	content: '';
-	position: absolute;
-	top: -2px;
-	left: -2px;
-	border-radius: 10px;
-	right: -2px;
-	bottom: 100%;
-	transition: all 0.5s cubic-bezier(0.35, 0.7, 0.35, 1);
-}
-
-.action-buttons > *:hover::after {
-	bottom: -2px;
-}
-
-.action-buttons span {
-	position: relative;
-	z-index: 2;
+	transition: all 0.3s linear;
 }
 
 .action-buttons .completed-read,
 .action-buttons .uncompleted-read {
 	background-color: transparent;
-	border: 3px solid #afe6ff;
-	margin-top: 2rem;
-	color: #afe6ff;
+	border: 3px solid hsl(199, 100%, 80%);
+	color: hsl(199, 100%, 80%);
 	overflow: hidden;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.action-buttons .completed-read:hover::after,
-.action-buttons .uncompleted-read:hover::after {
-	background-color: #afe6ff;
+.completed-read:hover,
+.uncompleted-read:hover {
+	background-color: #d5f2ff;
+	border: 3px solid #5cb1d8;
+	color: #5cb1d8;
 }
 
-.action-buttons > .completed-read:hover,
-.action-buttons > .uncompleted-read:hover {
-	overflow: visible;
-	color: #2c2c2d;
-	border: 3px solid #afe6ff;
-}
-
-.action-buttons .delete-book {
+.delete-book-button,
+.update-book-button {
 	background-color: transparent;
-	color: #ffd79f;
-	border: 3px solid #ffd79f;
-	margin-top: 0.8rem;
+	height: 50px;
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.action-buttons .delete-book:hover::after {
-	background-color: #ffd79f;
+.delete-book-button {
+	border: 3px solid rgb(255, 215, 140);
+	margin: 0 0.5em;
 }
 
-.action-buttons > .delete-book:hover {
-	overflow: visible;
-	color: #2c2c2d;
-	border: 3px solid #ffd79f;
+.delete-book-button i {
+	color: rgb(255, 208, 120);
+	font-size: 1.5rem;
+}
+
+.delete-book-button:hover {
+	border: 3px solid rgb(255, 193, 78);
+	background-color: rgb(255, 238, 206);
+}
+
+.delete-book-button:hover i {
+	color: rgb(255, 193, 78);
+}
+
+.update-book-button {
+	border: 3px solid rgb(144, 238, 144);
+}
+
+.update-book-button i {
+	color: rgb(144, 238, 144);
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+.update-book-button:hover {
+	border: 3px solid rgb(16, 255, 16);
+	background-color: rgb(208, 255, 208);
+}
+
+.update-book-button:hover i {
+	color: rgb(16, 255, 16);
 }
 
 .information {
@@ -419,6 +436,99 @@ header a:hover {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 	transition: all 0.3s ease-in-out;
 	opacity: 0;
+}
+
+.update-books {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(2px);
+	height: auto;
+	width: auto;
+	z-index: 9999;
+	overflow: auto;
+	align-items: center;
+	justify-content: center;
+	display: none;
+	overflow: auto;
+}
+
+.update-books .container {
+	background-color: whitesmoke;
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+	-webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+	border-radius: 10px;
+	padding: 1em;
+	max-width: 800px;
+	height: auto;
+}
+
+.update-books-header {
+	padding: 1em;
+	text-align: center;
+	margin-bottom: 3em;
+}
+
+.update-books-header h2 {
+	color: #42c2ff;
+}
+
+.update-books .form-element:not(:nth-child(4)) {
+	display: flex;
+	flex-direction: column;
+}
+
+.update-books .form-element {
+	margin: 1.5em auto;
+	color: #2c2c2d;
+}
+
+.update-books .form-element:not(:nth-child(4)) label {
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 0.4em;
+}
+
+.update-books .form-element #judul-buku,
+.update-books .form-element #penulis,
+.update-books .form-element #tahun-terbit {
+	font-size: 1rem;
+	height: 50px;
+	border: 0;
+	border-bottom: 3px solid #42c2ff;
+	background-color: transparent;
+	outline: 0;
+	padding: 1em 0;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.update-books .form-element #isComplete {
+	width: 25px;
+	cursor: pointer;
+}
+.update-books .form-element #isComplete ~ label {
+	font-weight: 500;
+}
+
+.update-books .form-element:last-child {
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.update-books .form-element button {
+	width: 200px;
+	margin: 0 0 0 1em;
+}
+
+.update-books .form-element #close {
+	background-color: rgb(255, 216, 142);
+}
+
+.update-books .form-element #close:hover {
+	background-color: rgb(255, 208, 120);
 }
 
 .information p {
@@ -501,7 +611,7 @@ footer p:nth-child(2) {
 		font-size: 1.5rem;
 	}
 
-	.form-element:not(:nth-child(4)) label {
+	.add-book-content .form-element:not(:nth-child(4)) label {
 		font-size: 1rem;
 	}
 

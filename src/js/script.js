@@ -34,14 +34,17 @@ const app = () => {
 			case 'successAddedToShelf':
 				information.firstElementChild.innerText = 'Buku berhasil ditambahkan ke dalam rak.';
 				break;
-			case 'moveToUncompletedShelf':
-				information.firstElementChild.innerHTML = 'Buku berhasil dipindahkan ke dalam <b>Rak Belum Selesai Dibaca</b>.';
+			case 'successUpdate':
+				information.firstElementChild.innerHTML = 'Data buku berhasil diperbaharui';
 				break;
+			case 'moveToUncmpoletedShelf':
+				information.firstElementChild.innerHTML = 'Buku berhasil dipindahkan ke dalam <b>Rak Belum Selesai Dibaca</b>.';
 			case 'moveToCompletedShelf':
 				information.firstElementChild.innerHTML = 'Buku berhasil dipindahkan ke dalam <b>Rak Telah Selesai Dibaca</b>.';
 				break;
 			case 'deleteBookFromShelf':
 				information.firstElementChild.innerHTML = 'Buku telah dihapus dari rak';
+				break;
 		}
 
 		information.style.opacity = '1';
@@ -112,8 +115,9 @@ const app = () => {
 		actionButtons.className = 'action-buttons';
 
 		const deleteBook = document.createElement('button');
-		deleteBook.className = 'delete-book';
-		deleteBook.innerHTML = '<span>Hapus Buku</span>';
+		deleteBook.title = 'hapus buku';
+		deleteBook.className = 'delete-book-button';
+		deleteBook.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
 
 		deleteBook.addEventListener('click', function () {
 			let confirmToUser = confirm('Apakah kamu yakin ingin menghapus buku ini ? ');
@@ -122,11 +126,20 @@ const app = () => {
 			}
 		});
 
+		const updateBookButton = document.createElement('button');
+		updateBookButton.title = 'perbarui buku';
+		updateBookButton.className = 'update-book-button';
+		updateBookButton.innerHTML = '<i class="fa-solid fa-pen-to-square"><i/>';
+
+		updateBookButton.addEventListener('click', function () {
+			updateBook(bookObject.id);
+		});
+
 		if (bookObject.isComplete == false) {
 			const unCompletedReadButton = document.createElement('button');
 			unCompletedReadButton.className = 'uncompleted-read';
 			unCompletedReadButton.innerHTML = '<span>Selesai Dibaca</span>';
-			actionButtons.append(unCompletedReadButton, deleteBook);
+			actionButtons.append(unCompletedReadButton, deleteBook, updateBookButton);
 
 			unCompletedReadButton.addEventListener('click', function () {
 				moveToCompletedShelf(bookObject.id);
@@ -135,7 +148,7 @@ const app = () => {
 			const completedReadButton = document.createElement('button');
 			completedReadButton.className = 'completed-read';
 			completedReadButton.innerHTML = '<span>Belum Selesai Dibaca</span>';
-			actionButtons.append(completedReadButton, deleteBook);
+			actionButtons.append(completedReadButton, deleteBook, updateBookButton);
 
 			completedReadButton.addEventListener('click', function () {
 				moveToUncompletedShelf(bookObject.id);
@@ -146,6 +159,50 @@ const app = () => {
 
 		return bookItem;
 	};
+
+	const updateBook = (bookId) => {
+		const updateBooks = document.querySelector('.update-books');
+		const updateForm = document.getElementById('update-form');
+		updateBooks.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
+
+		const titleField = updateBooks.querySelector('#judul-buku');
+		const authorField = updateBooks.querySelector('#penulis');
+		const yearField = updateBooks.querySelector('#tahun-terbit');
+		const isCompleteField = updateBooks.querySelector('#isComplete');
+
+		const book = books.filter((value) => value.id == bookId);
+		console.log(book);
+
+		titleField.value = book[0].title;
+		authorField.value = book[0].author;
+		yearField.value = book[0].year;
+		isCompleteField.checked = book[0].isComplete;
+
+		updateForm.addEventListener('submit', function (event) {
+			event.preventDefault();
+			book[0].title = titleField.value;
+			book[0].author = authorField.value;
+			book[0].year = yearField.value;
+			book[0].isComplete = isCompleteField.checked;
+			hideModal(updateBooks);
+			showAlert('successUpdate');
+			updateUI();
+		});
+
+		window.addEventListener('click', function (event) {
+			if (event.target.id == 'close') hideModal(updateBooks);
+		});
+	};
+
+	function fillFormModalBox(book) {
+		return { title, author, year, isComplete };
+	}
+
+	function hideModal(element) {
+		element.style.display = 'none';
+		document.body.style.overflow = 'auto';
+	}
 
 	const moveToUncompletedShelf = (bookId) => {
 		for (const book of books) {

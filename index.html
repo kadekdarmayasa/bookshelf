@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookShelf</title>
   <link rel="stylesheet" href="src/css/style.css">
+  <script src="https://kit.fontawesome.com/a53653dcab.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -80,6 +81,36 @@
         <h2>Daftar Buku <br> Telah Selesai Dibaca</h2>
       </div>
       <div class="completed-books-shelf">
+      </div>
+    </section>
+
+    <section class="update-books">
+      <div class="container">
+        <div class="update-books-header">
+          <h2>Perbarui Data Buku</h2>
+        </div>
+        <form id="update-form" method="post">
+          <div class="form-element">
+            <label for="judul-buku">Judul Buku</label>
+            <input type="text" name="judul-buku" id="judul-buku" maxlength="50" required>
+          </div>
+          <div class="form-element">
+            <label for="penulis">Penulis</label>
+            <input type="text" id="penulis" name="penulis" maxlength="100" required>
+          </div>
+          <div class="form-element">
+            <label for="tahun-terbit">Tahun Terbit</label>
+            <input type="date" id="tahun-terbit" name="tahun-terbit" required>
+          </div>
+          <div class="form-element">
+            <input type="checkbox" id="isComplete" name="isRead" checked>
+            <label for="isComplete">Telah selesai dibaca</label>
+          </div>
+          <div class="form-element">
+            <button id="close" type="button">Keluar</button>
+            <button type="submit">Perbarui Buku</button>
+          </div>
+        </form>
       </div>
     </section>
 
