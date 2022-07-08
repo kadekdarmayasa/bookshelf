@@ -83,8 +83,9 @@ header p {
 	font-size: 1.2rem;
 	margin: 0.8em auto 4em;
 	width: 70%;
+	font-weight: 400;
 	line-height: 2;
-	text-shadow: -2px 5px 10px rgba(66, 194, 255, 0.5);
+	text-shadow: -2px 5px 5px rgba(66, 194, 255, 0.5);
 }
 
 header a {
@@ -139,7 +140,7 @@ header a:hover {
 	align-items: center;
 }
 
-.add-book-content > #submitForm {
+.add-book-content > #addForm {
 	flex: 1;
 }
 
@@ -584,11 +585,11 @@ footer p:nth-child(2) {
 		width: 100%;
 	}
 
-	.add-book-content > #submitForm {
+	.add-book-content > #addForm {
 		order: 2;
 	}
 
-	.add-book-content > #submitForm {
+	.add-book-content > #addForm {
 		width: 100%;
 	}
 
@@ -649,7 +650,18 @@ footer p:nth-child(2) {
 		width: 90%;
 	}
 
-	.add-book-header p {
-		/* margin: 1.5em auto 1em; */
+	.action-buttons {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.action-buttons .completed-read,
+	.action-buttons .uncompleted-read {
+		width: 300px;
+		margin-bottom: 1em;
+	}
+
+	.delete-book-button {
+		margin-left: 0;
 	}
 }

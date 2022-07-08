@@ -161,43 +161,54 @@ const app = () => {
 	};
 
 	const updateBook = (bookId) => {
-		for (const book of books) {
-			if (book.id == bookId) {
-				const updateBookContainer = document.querySelector('.update-book');
-				updateBookContainer.style.display = 'flex';
-				document.body.style.overflow = 'hidden';
+		const book = books.filter((value) => value.id === bookId)[0];
+		const updateBookContainer = document.querySelector('.update-book');
+		let formElements = `<div class="form-element">
+            <label for="title">Judul Buku</label>
+            <input type="text" name="title" id="title" maxlength="50" value="${book.title}" required>
+          </div>
+          <div class="form-element">
+            <label for="author">Penulis</label>
+            <input type="text" id="author" name="author" value="${book.author}" maxlength="100" required>
+          </div>
+          <div class="form-element">
+            <label for="year">Tahun Terbit</label>
+            <input type="date" id="year" value="${book.year}" name="year" required>
+          </div>
+          <div class="form-element">
+            <input type="checkbox" id="isRead" name="isRead" ${checkboxValue(book)}>
+            <label for="isRead">Telah selesai dibaca</label>
+          </div>
+          <div class="form-element">
+            <button id="close" type="button">Keluar</button>
+            <button type="submit">Perbarui Buku</button>
+          </div>`;
 
-				const title = updateBookContainer.querySelector('#title');
-				const author = updateBookContainer.querySelector('#author');
-				const year = updateBookContainer.querySelector('#year');
-				const isRead = updateBookContainer.querySelector('#isRead');
+		const updateForm = document.getElementById('update-form');
 
-				title.value = book.title;
-				author.value = book.author;
-				year.value = book.year;
-				isRead.checked = book.isComplete;
+		updateForm.innerHTML = formElements;
+		updateBookContainer.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
 
-				document.getElementById('update-form').addEventListener('submit', function (event) {
-					event.preventDefault();
-					book.title = title.value;
-					book.author = author.value;
-					book.year = year.value;
-					book.isComplete = isRead.checked;
+		updateForm.onsubmit = function (e) {
+			e.preventDefault();
+			book.title = document.getElementById('title').value;
+			book.author = document.getElementById('author').value;
+			book.year = document.getElementById('year').value;
+			book.isComplete = document.getElementById('isRead').checked;
 
-					updateBookContainer.style.display = 'none';
-					document.body.style.overflow = 'auto';
-					showAlert('successUpdate');
-					updateUI();
-				});
+			document.getElementById('close').click();
+			showAlert('successUpdate');
+			updateUI();
+		};
 
-				document.querySelector('#close').addEventListener('click', function () {
-					updateBookContainer.style.display = 'none';
-					document.body.style.overflow = 'auto';
-				});
-				return;
-			}
-		}
+		document.getElementById('close').addEventListener('click', function () {
+			updateBookContainer.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		});
 	};
+
+	const checkboxValue = (book) => (book.isComplete === false ? '' : 'checked');
 
 	const moveToUncompletedShelf = (bookId) => {
 		for (const book of books) {
@@ -246,11 +257,11 @@ const app = () => {
 	document.body.addEventListener('update-ui', renderBooks);
 
 	document.addEventListener('DOMContentLoaded', function () {
-		const submitForm = document.getElementById('submitForm');
+		const addForm = document.getElementById('addForm');
 		const searchKeywordButton = document.getElementById('search-keyword-button');
 		loadDataFromStorage();
 
-		submitForm.addEventListener('submit', function (event) {
+		addForm.addEventListener('submit', function (event) {
 			event.preventDefault();
 
 			const bookTitle = document.getElementById('judul-buku').value;

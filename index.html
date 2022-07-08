@@ -31,7 +31,7 @@
         </p>
       </div>
       <div class="add-book-content">
-        <form action="" method="post" id="submitForm">
+        <form action="" method="post" id="addForm">
           <div class="form-element">
             <label for="judul-buku">Judul Buku</label>
             <input type="text" id="judul-buku" name="judul-buku"
@@ -89,27 +89,7 @@
         <div class="update-book-header">
           <h2>Perbarui Data Buku</h2>
         </div>
-        <form id="update-form" method="post">
-          <div class="form-element">
-            <label for="title">Judul Buku</label>
-            <input type="text" name="title" id="title" maxlength="50" required>
-          </div>
-          <div class="form-element">
-            <label for="author">Penulis</label>
-            <input type="text" id="author" name="author" maxlength="100" required>
-          </div>
-          <div class="form-element">
-            <label for="year">Tahun Terbit</label>
-            <input type="date" id="year" name="year" required>
-          </div>
-          <div class="form-element">
-            <input type="checkbox" id="isRead" name="isRead" checked>
-            <label for="isRead">Telah selesai dibaca</label>
-          </div>
-          <div class="form-element">
-            <button id="close" type="button">Keluar</button>
-            <button type="submit">Perbarui Buku</button>
-          </div>
+        <form action="" id="update-form" method="post">
         </form>
       </div>
     </section>
