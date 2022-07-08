@@ -161,48 +161,43 @@ const app = () => {
 	};
 
 	const updateBook = (bookId) => {
-		const updateBooks = document.querySelector('.update-books');
-		const updateForm = document.getElementById('update-form');
-		updateBooks.style.display = 'flex';
-		document.body.style.overflow = 'hidden';
+		for (const book of books) {
+			if (book.id == bookId) {
+				const updateBookContainer = document.querySelector('.update-book');
+				updateBookContainer.style.display = 'flex';
+				document.body.style.overflow = 'hidden';
 
-		const titleField = updateBooks.querySelector('#judul-buku');
-		const authorField = updateBooks.querySelector('#penulis');
-		const yearField = updateBooks.querySelector('#tahun-terbit');
-		const isCompleteField = updateBooks.querySelector('#isComplete');
+				const title = updateBookContainer.querySelector('#title');
+				const author = updateBookContainer.querySelector('#author');
+				const year = updateBookContainer.querySelector('#year');
+				const isRead = updateBookContainer.querySelector('#isRead');
 
-		const book = books.filter((value) => value.id == bookId);
-		console.log(book);
+				title.value = book.title;
+				author.value = book.author;
+				year.value = book.year;
+				isRead.checked = book.isComplete;
 
-		titleField.value = book[0].title;
-		authorField.value = book[0].author;
-		yearField.value = book[0].year;
-		isCompleteField.checked = book[0].isComplete;
+				document.getElementById('update-form').addEventListener('submit', function (event) {
+					event.preventDefault();
+					book.title = title.value;
+					book.author = author.value;
+					book.year = year.value;
+					book.isComplete = isRead.checked;
 
-		updateForm.addEventListener('submit', function (event) {
-			event.preventDefault();
-			book[0].title = titleField.value;
-			book[0].author = authorField.value;
-			book[0].year = yearField.value;
-			book[0].isComplete = isCompleteField.checked;
-			hideModal(updateBooks);
-			showAlert('successUpdate');
-			updateUI();
-		});
+					updateBookContainer.style.display = 'none';
+					document.body.style.overflow = 'auto';
+					showAlert('successUpdate');
+					updateUI();
+				});
 
-		window.addEventListener('click', function (event) {
-			if (event.target.id == 'close') hideModal(updateBooks);
-		});
+				document.querySelector('#close').addEventListener('click', function () {
+					updateBookContainer.style.display = 'none';
+					document.body.style.overflow = 'auto';
+				});
+				return;
+			}
+		}
 	};
-
-	function fillFormModalBox(book) {
-		return { title, author, year, isComplete };
-	}
-
-	function hideModal(element) {
-		element.style.display = 'none';
-		document.body.style.overflow = 'auto';
-	}
 
 	const moveToUncompletedShelf = (bookId) => {
 		for (const book of books) {

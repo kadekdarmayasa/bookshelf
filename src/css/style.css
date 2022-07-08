@@ -192,7 +192,7 @@ header a:hover {
 }
 
 .add-book-content .form-element button,
-.update-books .form-element button {
+.update-book .form-element button {
 	background-color: #b8fff9;
 	border: 0;
 	outline: 0;
@@ -208,7 +208,7 @@ header a:hover {
 }
 
 .add-book-content .form-element button:hover,
-.update-books .form-element button:hover {
+.update-book .form-element button:hover {
 	background-color: #a5fff9;
 }
 
@@ -438,7 +438,7 @@ header a:hover {
 	opacity: 0;
 }
 
-.update-books {
+.update-book {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -449,14 +449,13 @@ header a:hover {
 	height: auto;
 	width: auto;
 	z-index: 9999;
+	display: none;
 	overflow: auto;
 	align-items: center;
 	justify-content: center;
-	display: none;
-	overflow: auto;
 }
 
-.update-books .container {
+.update-book .container {
 	background-color: whitesmoke;
 	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 	-webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
@@ -466,35 +465,35 @@ header a:hover {
 	height: auto;
 }
 
-.update-books-header {
+.update-book-header {
 	padding: 1em;
 	text-align: center;
 	margin-bottom: 3em;
 }
 
-.update-books-header h2 {
+.update-book-header h2 {
 	color: #42c2ff;
 }
 
-.update-books .form-element:not(:nth-child(4)) {
+.update-book .form-element:not(:nth-child(4)) {
 	display: flex;
 	flex-direction: column;
 }
 
-.update-books .form-element {
+.update-book .form-element {
 	margin: 1.5em auto;
 	color: #2c2c2d;
 }
 
-.update-books .form-element:not(:nth-child(4)) label {
+.update-book .form-element:not(:nth-child(4)) label {
 	font-size: 1.1rem;
 	font-weight: 600;
 	margin-bottom: 0.4em;
 }
 
-.update-books .form-element #judul-buku,
-.update-books .form-element #penulis,
-.update-books .form-element #tahun-terbit {
+.update-book .form-element #title,
+.update-book .form-element #author,
+.update-book .form-element #year {
 	font-size: 1rem;
 	height: 50px;
 	border: 0;
@@ -505,29 +504,29 @@ header a:hover {
 	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.update-books .form-element #isComplete {
+.update-book .form-element #isRead {
 	width: 25px;
 	cursor: pointer;
 }
-.update-books .form-element #isComplete ~ label {
+.update-book .form-element #isRead ~ label {
 	font-weight: 500;
 }
 
-.update-books .form-element:last-child {
+.update-book .form-element:last-child {
 	flex-direction: row;
 	justify-content: flex-end;
 }
 
-.update-books .form-element button {
+.update-book .form-element button {
 	width: 200px;
 	margin: 0 0 0 1em;
 }
 
-.update-books .form-element #close {
+.update-book .form-element #close {
 	background-color: rgb(255, 216, 142);
 }
 
-.update-books .form-element #close:hover {
+.update-book .form-element #close:hover {
 	background-color: rgb(255, 208, 120);
 }
 
