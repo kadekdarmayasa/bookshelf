@@ -424,21 +424,6 @@ header a:hover {
 .update-book-button:hover i {
 	color: rgb(16, 255, 16);
 }
-
-.information {
-	position: fixed;
-	background-color: white;
-	bottom: -100px;
-	right: 10px;
-	z-index: 999;
-	padding: 2em 2em;
-	border-left: 8px solid #42c2ff;
-	border-radius: 4px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-	transition: all 0.3s ease-in-out;
-	opacity: 0;
-}
-
 .update-book {
 	position: fixed;
 	top: 0;
@@ -531,15 +516,6 @@ header a:hover {
 	background-color: rgb(255, 208, 120);
 }
 
-.information p {
-	color: #2c2c2d;
-	font-weight: 500;
-}
-
-.information b {
-	font-weight: 600;
-}
-
 audio {
 	display: none;
 }
@@ -626,18 +602,6 @@ footer p:nth-child(2) {
 
 	header a {
 		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 560px) {
-	.information {
-		width: 80%;
-		padding: 1em;
-	}
-
-	.information p {
-		font-size: 0.9rem;
-		line-height: 1.8;
 	}
 }
 
