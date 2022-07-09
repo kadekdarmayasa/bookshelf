@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html {
 	scroll-behavior: smooth;
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	max-width: 1600px;
 	margin: auto;
 }
@@ -83,7 +83,7 @@ header p {
 	font-size: 1.2rem;
 	margin: 0.8em auto 4em;
 	width: 70%;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 2;
 	text-shadow: -2px 5px 5px rgba(66, 194, 255, 0.5);
 }
@@ -91,7 +91,7 @@ header p {
 header a {
 	color: #85f4ff;
 	font-size: 1.2rem;
-	font-weight: 600;
+	font-weight: 500;
 	padding: 1em 3em;
 	border: 3px solid #85f4ff;
 	border-radius: 10px;
@@ -123,13 +123,13 @@ header a:hover {
 }
 
 .add-book-header h2 {
-	font-weight: 700;
+	font-weight: 600;
 	color: #42c2ff;
 }
 
 .add-book-header p {
 	font-size: 1.02rem;
-	font-weight: 500;
+	font-weight: 400;
 	margin: 1.5em auto 3em;
 	color: #2c2c2d;
 	line-height: 1.8;
@@ -177,11 +177,12 @@ header a:hover {
 	background-color: #effffd;
 	font-size: 1rem;
 	height: 50px;
+	width: 100%;
 	border-radius: 10px;
 	border: 0;
 	outline: 0;
 	padding: 1em;
-	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 .add-book-content .form-element #isComplete {
@@ -189,7 +190,7 @@ header a:hover {
 	cursor: pointer;
 }
 .add-book-content .form-element #isComplete ~ label {
-	font-weight: 500;
+	font-weight: 400;
 }
 
 .add-book-content .form-element button,
@@ -204,7 +205,7 @@ header a:hover {
 	font-weight: 500;
 	border-radius: 10px;
 	color: #2c2c2d;
-	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
 }
 
@@ -254,11 +255,11 @@ header a:hover {
 .search-container button {
 	color: #2c2c2d;
 	font-size: 1em;
-	font-weight: 600;
+	font-weight: 500;
 	background-color: transparent;
 	border: 0;
 	outline: 0;
-	font-family: 'Plus Jakarta Sans';
+	font-family: 'Poppins';
 }
 
 .search-container input {
@@ -294,7 +295,7 @@ header a:hover {
 	color: #42c2ff;
 	text-align: center;
 	line-height: 1.8;
-	font-weight: bold;
+	font-weight: 600;
 }
 
 .uncompleted-books-shelf,
@@ -318,7 +319,7 @@ header a:hover {
 }
 
 .book > .title {
-	font-weight: 600;
+	font-weight: 500;
 	color: #42c2ff;
 }
 
@@ -329,13 +330,13 @@ header a:hover {
 
 .book > .author {
 	color: #414141;
-	font-weight: 600;
+	font-weight: 500;
 	margin-top: 3rem;
 }
 
 .book > .year {
 	color: #414141;
-	font-weight: 400;
+	font-weight: 300;
 	margin-top: 0.3rem;
 }
 
@@ -346,11 +347,11 @@ header a:hover {
 }
 
 .action-buttons > * {
-	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	border: 0;
 	outline: 0;
 	padding: 1em;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 1rem;
 	border-radius: 10px;
 	cursor: pointer;
@@ -424,6 +425,7 @@ header a:hover {
 .update-book-button:hover i {
 	color: rgb(16, 255, 16);
 }
+
 .update-book {
 	position: fixed;
 	top: 0;
@@ -459,6 +461,7 @@ header a:hover {
 
 .update-book-header h2 {
 	color: #42c2ff;
+	font-weight: 600;
 }
 
 .update-book .form-element:not(:nth-child(4)) {
@@ -483,11 +486,12 @@ header a:hover {
 	font-size: 1rem;
 	height: 50px;
 	border: 0;
+	width: 100%;
 	border-bottom: 3px solid #42c2ff;
 	background-color: transparent;
 	outline: 0;
 	padding: 1em 0;
-	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 .update-book .form-element #isRead {
@@ -495,7 +499,7 @@ header a:hover {
 	cursor: pointer;
 }
 .update-book .form-element #isRead ~ label {
-	font-weight: 500;
+	font-weight: 400;
 }
 
 .update-book .form-element:last-child {

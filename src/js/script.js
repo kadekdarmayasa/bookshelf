@@ -3,11 +3,19 @@
 	const UPDATE_UI = new Event('update-ui');
 	const storageKey = 'book-datas-in-storage';
 
+	/**
+	 * UpdateUI is used to dispatch the UPDATE_UI event
+	 * And the purpose is to make the browser know what change happened in a particural content
+	 * Also, this will save the new data of book in localStorage
+	 */
 	const updateUI = () => {
 		docm.body.dispatchEvent(UPDATE_UI);
 		saveToStorage();
 	};
 
+	/**
+	 * check if the browser support the Storage Object
+	 */
 	const checkForStorage = () => (typeof Storage === 'function' ? true : false);
 
 	const saveToStorage = () => {
@@ -17,6 +25,9 @@
 		}
 	};
 
+	/**
+	 * This function is used to load newest data from local storage.
+	 */
 	const loadDataFromStorage = () => {
 		if (checkForStorage()) {
 			if (books.length === 0 && localStorage.getItem(storageKey) !== null) {
@@ -28,12 +39,32 @@
 
 	const showAlert = (message, type) => {
 		if (type === 'successAlert') {
-			Swal.fire({
-				title: 'Congratulations',
-				text: message,
-				icon: 'success',
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
 				showConfirmButton: false,
 				timer: 2000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer);
+					toast.addEventListener('mouseleave', Swal.resumeTimer);
+				},
+			});
+
+			Toast.fire({
+				icon: 'success',
+				iconColor: '#42c2ff',
+				title: message,
+			});
+		} else {
+			return Swal.fire({
+				title: 'Peringatan',
+				text: message,
+				icon: 'warning',
+				showConfirmButton: true,
+				confirmButtonText: 'Yakin',
+				showCancelButton: true,
+				cancelButtonText: 'Batal',
 			});
 		}
 	};
@@ -124,10 +155,10 @@
 		deleteBook.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
 
 		deleteBook.addEventListener('click', function () {
-			let confirmToUser = confirm('Apakah kamu yakin ingin menghapus buku ini ? ');
-			if (confirmToUser) {
-				deleteBookFromShelf(bookObject.id);
-			}
+			const confirmToUser = showAlert('Apakah anda yakin ingin menghapus buku ini? ', 'confirmAlert');
+			confirmToUser.then((SweetAlertResult) => {
+				if (SweetAlertResult.isConfirmed) deleteBookFromShelf(bookObject.id);
+			});
 		});
 
 		const updateBookButton = docm.createElement('button');
