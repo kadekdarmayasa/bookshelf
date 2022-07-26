@@ -3,19 +3,11 @@
 	const UPDATE_UI = new Event('update-ui');
 	const storageKey = 'book-datas-in-storage';
 
-	/**
-	 * UpdateUI is used to dispatch the UPDATE_UI event
-	 * And the purpose is to make the browser know what change happened in a particural content
-	 * Also, this will save the new data of book in localStorage
-	 */
 	const updateUI = () => {
 		docm.body.dispatchEvent(UPDATE_UI);
 		saveToStorage();
 	};
 
-	/**
-	 * check if the browser support the Storage Object
-	 */
 	const checkForStorage = () => (typeof Storage === 'function' ? true : false);
 
 	const saveToStorage = () => {
@@ -25,9 +17,6 @@
 		}
 	};
 
-	/**
-	 * This function is used to load newest data from local storage.
-	 */
 	const loadDataFromStorage = () => {
 		if (checkForStorage()) {
 			if (books.length === 0 && localStorage.getItem(storageKey) !== null) {
